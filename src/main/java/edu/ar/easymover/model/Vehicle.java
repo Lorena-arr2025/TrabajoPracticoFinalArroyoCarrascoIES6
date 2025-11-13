@@ -24,8 +24,51 @@ public Vehicle(String patente, String marca, String color, String fechaFabricaci
         this.provinciaOrigen = provinciaOrigen;
 
     }    
-    // Getters y Setters 
+
+    // constructor parcial
+public Vehicle(String patente, String marca) {
+        this.patente = patente;
+        this.marca = marca;
+
+    }
+    // getters and setters
+    public String getPatente () {
+        return patente;
+    }
+    public void setPatente(String patente) {
+        this.patente = patente;
+
+    }
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+
+    }
+    public String getColor () {
+        return color;
+
+    }
+    public void setColor(String color) {
+        this.color = color;
+
+    }
+    public String getFechaFabricacion() {
+        return fechaFabricacion;
+
+    }
+    public void setFechaFabricacion(String fechaFabricacion) {
+        this.fechaFabricacion = fechaFabricacion;
+    }
+
+    public String getProvinciaOrigen(String provinciaOrigen) {
+        return provinciaOrigen;
+    }
+    
+    public void setProvinciaOrigen(String provinciaOrigen) {
+        this.provinciaOrigen = provinciaOrigen;
+    }
 
 } 
     
-
