@@ -62,10 +62,10 @@ public Vehicle(String patente, String marca) {
         this.fechaFabricacion = fechaFabricacion;
     }
 
-    public String getProvinciaOrigen(String provinciaOrigen) {
+    public String getProvinciaOrigen() {
         return provinciaOrigen;
     }
-    
+
     public void setProvinciaOrigen(String provinciaOrigen) {
         this.provinciaOrigen = provinciaOrigen;
     }
