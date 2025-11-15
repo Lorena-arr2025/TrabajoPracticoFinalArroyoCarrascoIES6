@@ -2,12 +2,14 @@ package edu.ar.easymover.model;
 
 public class Vehicle {
     // Atributos
+    private Integer idVehicle;
     private String patente;
-    private String marca;
+    private String modelo;
     private String color;
-    private String fechaFabricacion;
-    private String provinciaOrigen;
-    
+    private Boolean estadoVehicle;
+    private String tipoVehicle;
+
+
 
     // Constructores---
     
@@ -16,59 +18,76 @@ public class Vehicle {
     
 } 
     // constructores parametrizados
-public Vehicle(String patente, String marca, String color, String fechaFabricacion, String provinciaOrigen) {
-        this.patente = patente;
-        this.marca = marca;
-        this.color = color;
-        this.fechaFabricacion = fechaFabricacion;
-        this.provinciaOrigen = provinciaOrigen;
 
-    }    
 
-    // constructor parcial
-public Vehicle(String patente, String marca) {
-        this.patente = patente;
-        this.marca = marca;
+    public Vehicle(Integer idVehicle, String patente, String modelo, String color, boolean estadoVehicle,
+        String tipoVehicle) {
+    this.idVehicle = idVehicle;
+    this.patente = patente;
+    this.modelo = modelo;
+    this.color = color;
+    this.estadoVehicle = estadoVehicle;
+    this.tipoVehicle = tipoVehicle;
+}
 
+
+    public Integer getIdVehicle() {
+        return idVehicle;
     }
-    // getters and setters
-    public String getPatente () {
+
+
+    public String getPatente() {
         return patente;
     }
+
+
+    public String getModelo() {
+        return modelo;
+    }
+
+
+    public String getColor() {
+        return color;
+    }
+
+
+    public boolean isEstadoVehicle() {
+        return estadoVehicle;
+    }
+
+
+    public String getTipoVehicle() {
+        return tipoVehicle;
+    }
+    // getters and setters
+
+
+    public void setIdVehicle(Integer idVehicle) {
+        this.idVehicle = idVehicle;
+    }
+
+
     public void setPatente(String patente) {
         this.patente = patente;
+    }
 
-    }
-    public String getMarca() {
-        return marca;
-    }
-    public void setMarca(String marca) {
-        this.marca = marca;
 
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
-    public String getColor () {
-        return color;
 
-    }
+
     public void setColor(String color) {
         this.color = color;
-
-    }
-    public String getFechaFabricacion() {
-        return fechaFabricacion;
-
-    }
-    public void setFechaFabricacion(String fechaFabricacion) {
-        this.fechaFabricacion = fechaFabricacion;
     }
 
-    public String getProvinciaOrigen() {
-        return provinciaOrigen;
+
+    public void setEstadoVehicle(boolean estadoVehicle) {
+        this.estadoVehicle = estadoVehicle;
     }
 
-    public void setProvinciaOrigen(String provinciaOrigen) {
-        this.provinciaOrigen = provinciaOrigen;
-    }
 
-} 
-    
+    public void setTipoVehicle(String tipoVehicle) {
+        this.tipoVehicle = tipoVehicle;
+    }
+}  
