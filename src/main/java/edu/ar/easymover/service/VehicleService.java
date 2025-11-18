@@ -1,39 +1,41 @@
 package edu.ar.easymover.service;
 
-import org.springframework.beans.factory.annotation.Autowired; 
-import org.springframework.stereotype.Service;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import edu.ar.easymover.model.Vehicle;
 import edu.ar.easymover.repository.VehicleRepository;
 
 @Service
-
 public class VehicleService {
 
     @Autowired
     private VehicleRepository vehicleRepository;
 
-  // Obtener los vehículos..
-
-    public List<Vehicle> getAllVehicles() {
+    // ✔ Listar todos los vehículos
+    public List<Vehicle> listarTodos() {
         return vehicleRepository.findAll();
     }
 
-    // Guardar un vehículo..
-    public Vehicle saveVehicle(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
+    // ✔ Guardar un vehículo
+    public void guardar(Vehicle vehicle) {
+        vehicleRepository.save(vehicle);
     }
 
-    // Eliminar un vehículo por ID..
-
-    public void deleteVehicle(Integer idVehicle) {
-        vehicleRepository.deleteById(idVehicle);
+    // ✔ Buscar por ID (opcional)
+    public Vehicle buscarPorId(Integer id) {
+        return vehicleRepository.findById(id).orElse(null);
     }
 
-    // Buscar un vehículo por ID..
-
-    public Vehicle getVehicleById(Integer idVehicle) {
-        return vehicleRepository.findById(idVehicle).orElse(null);
+    // ✔ Eliminar (lógica o física)
+    public void eliminar(Integer id) {
+        vehicleRepository.deleteById(id);
     }
 
+    public Object getAllVehicles() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllVehicles'");
+    }
 }
