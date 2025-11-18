@@ -3,6 +3,7 @@ package edu.ar.easymover.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+
 import edu.ar.easymover.model.Viaje;
 import edu.ar.easymover.repository.ViajesRepository;
 
@@ -17,6 +18,8 @@ public class ViajeService {
     }
 
     public Viaje saveViaje(Viaje viaje) {
+        double costo = calcularCosto(viaje);
+        viaje.setCosto(costo);
         return viajesRepository.save(viaje);
     }
 
@@ -34,7 +37,7 @@ public class ViajeService {
         double costoBase = 0;
 
         // Tipo de viaje: corta, media o larga distancia
-        switch (viaje.getTipoViaje()) {
+        switch (viaje.getTipoViaje().toLowerCase()) {
             case "corta":
                 costoBase = 7000;
                 break;
@@ -48,8 +51,8 @@ public class ViajeService {
                 break;
         }
 
-        // Tipo de vehículo: X, Luxe o Premium
-        String tipoVehiculo = viaje.getVehicle().gettipoVehicle();
+        // ⭐ Tipo de vehículo: X, Luxe o Premium
+        String tipoVehiculo = viaje.getVehicle().getTipoVehiculo();
 
         if (tipoVehiculo.equalsIgnoreCase("Luxe")) {
             costoBase *= 1.10;  // +10%

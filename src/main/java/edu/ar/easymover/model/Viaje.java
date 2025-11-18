@@ -1,20 +1,35 @@
 package edu.ar.easymover.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Viaje {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idViaje;
+
     private String origen;
     private String destino;
     private String fecha;
     private Double costo;
     private Boolean estadoViaje;
-    private String tipoViaje;
+    private String tipoViaje; // corta – media – larga
 
-    // Getters y Setters
-    public Integer getId() {
+    // RELACIÓN N:1 con Vehículo
+    @ManyToOne
+    @JoinColumn(name = "idVehicle")
+    private Vehicle vehicle;
+
+    // Constructor vacío
+    public Viaje() {}
+
+    // Getters y setters
+    public Integer getIdViaje() {
         return idViaje;
     }
 
-    public void setId(Integer idViaje) {
+    public void setIdViaje(Integer idViaje) {
         this.idViaje = idViaje;
     }
 
@@ -49,23 +64,28 @@ public class Viaje {
     public void setCosto(Double costo) {
         this.costo = costo;
     }
-    public void setEstadoViaje(boolean estadoViaje) {
+
+    public Boolean getEstadoViaje() {
+        return estadoViaje;
+    }
+
+    public void setEstadoViaje(Boolean estadoViaje) {
         this.estadoViaje = estadoViaje;
     }
 
-    public boolean isEstadoViaje() {
-        return estadoViaje;
-    }
     public String getTipoViaje() {
         return tipoViaje;
     }
-      public void setTipoViaje(String tipoViaje) {
+
+    public void setTipoViaje(String tipoViaje) {
         this.tipoViaje = tipoViaje;
     }
 
-      public Object getVehicle() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getVehicle'");
-      }
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 }
