@@ -63,4 +63,9 @@ public class Viaje {
         this.tipoViaje = tipoViaje;
     }
 
+      public Object getVehicle() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getVehicle'");
+      }
+
 }

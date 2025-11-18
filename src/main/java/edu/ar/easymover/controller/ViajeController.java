@@ -1,9 +1,24 @@
-package edu.ar.easymover.controller;
+package edu.ar.easymover.controller; 
 
-public class ViajeController { 
-    
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/viajes")
+public class ViajeController {
 
-
-    
+    @GetMapping
+    public String getViajes() {
+        return "viajes";    // Devolución de nombre de la vista vehíulo
+    }
 }
+
+
+
+
+
+
+
+    
+

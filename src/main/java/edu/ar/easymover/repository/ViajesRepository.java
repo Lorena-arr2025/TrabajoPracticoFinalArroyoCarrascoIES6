@@ -2,15 +2,16 @@ package edu.ar.easymover.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import edu.ar.easymover.model.Vehicle;
+import edu.ar.easymover.model.Viaje;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
-    // Creo repositoriio de la entidad vehiculo--
+public interface ViajesRepository extends JpaRepository<Viaje, Integer> {
+    // Creo repository para la entidad  viajes--
 }
 
 
 
- 
+
+
     
 

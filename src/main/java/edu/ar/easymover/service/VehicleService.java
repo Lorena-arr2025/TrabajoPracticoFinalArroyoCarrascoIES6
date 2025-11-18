@@ -26,14 +26,14 @@ public class VehicleService {
 
     // Eliminar un vehículo por ID..
 
-    public void deleteVehicle(Integer id) {
-        vehicleRepository.deleteById(id);
+    public void deleteVehicle(Integer idVehicle) {
+        vehicleRepository.deleteById(idVehicle);
     }
 
     // Buscar un vehículo por ID..
 
-    public Vehicle getVehicleById(Integer id) {
-        return vehicleRepository.findById(id).orElse(null);
+    public Vehicle getVehicleById(Integer idVehicle) {
+        return vehicleRepository.findById(idVehicle).orElse(null);
     }
 
 }

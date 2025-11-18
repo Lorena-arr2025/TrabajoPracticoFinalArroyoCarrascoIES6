@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class VehicleController {
 
     @GetMapping
-    public String getVehicles() {
-        return "vehicles"; // Devuelve el nombre de la vista vehíulo
-    }
+    public String getVehiculo() {
+        return "vehicles";       // Devuelve el nombre de la vista vehíulo
+
+   }  
+
 }
-
-
 
  
 
