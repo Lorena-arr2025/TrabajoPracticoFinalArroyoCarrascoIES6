@@ -8,11 +8,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuarios")
-public class usuarioModel {
+public class UsuarioModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idUsuario;
+    private Boolean estadoUsuario;
 
     private String nombre;
     private String apellido;
@@ -21,11 +22,13 @@ public class usuarioModel {
     private String direccion;
 
     // Constructor vacío (obligatorio para JPA)
-    public usuarioModel() {}
-
+    public UsuarioModel() {}
+    
     // Constructor con parámetros
-    public usuarioModel(Integer id, String nombre, String apellido, String email, String telefono, String direccion) {
-        this.id = id;
+    public UsuarioModel(Integer idUsuario, Boolean estadoUsuario, String nombre, String apellido, String email,
+            String telefono, String direccion) {
+        this.idUsuario = idUsuario;
+        this.estadoUsuario = estadoUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -33,19 +36,65 @@ public class usuarioModel {
         this.direccion = direccion;
     }
 
-    // Getters
-    public Integer getId() { return id; }
-    public String getNombre() { return nombre; }
-    public String getApellido() { return apellido; }
-    public String getEmail() { return email; }
-    public String getTelefono() { return telefono; }
-    public String getDireccion() { return direccion; }
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
 
-    // Setters
-    public void setId(Integer id) { this.id = id; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setApellido(String apellido) { this.apellido = apellido; }
-    public void setEmail(String email) { this.email = email; }
-    public void setTelefono(String telefono) { this.telefono = telefono; }
-    public void setDireccion(String direccion) { this.direccion = direccion; }
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public void setEstadoUsuario(Boolean estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Boolean getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+    
 }
+
+    
+  
+
+    
