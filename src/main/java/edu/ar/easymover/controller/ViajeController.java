@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.ar.easymover.model.Viaje;
@@ -22,14 +23,19 @@ public class ViajeController {
 
     // 1. FORMULARIO PARA CREAR UN NUEVO VIAJE
     @GetMapping("/viajes/nuevo")
-    public ModelAndView nuevoViaje() {
-        ModelAndView mav = new ModelAndView("Viajes");
+public ModelAndView nuevoViaje(@RequestParam(value = "tipo", required = false) String tipo) {
 
-        mav.addObject("viajeNuevo", new Viaje());  
-        mav.addObject("vehiculos", vehicleService.listarTodos()); 
+    ModelAndView mav = new ModelAndView("Viajes");
 
-        return mav;
-    }
+    mav.addObject("viajeNuevo", new Viaje());
+    mav.addObject("vehiculos", vehicleService.listarTodos());
+
+    // ⭐ Aquí estamos enviando el tipo seleccionado al HTML
+    mav.addObject("tipoSeleccionado", tipo);
+
+    return mav;
+}
+
 
     // 2. GUARDAR EL VIAJE
     @PostMapping("/viajes/guardar")
