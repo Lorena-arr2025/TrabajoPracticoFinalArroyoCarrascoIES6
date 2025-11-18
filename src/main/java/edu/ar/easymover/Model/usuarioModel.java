@@ -1,5 +1,6 @@
 package edu.ar.easymover.Model;
 
+import edu.ar.easymover.Model.UsuarioModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

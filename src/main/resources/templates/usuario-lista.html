@@ -1,44 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista de Usuarios</title>
-    <meta charset="UTF-8">
+  <meta charset="utf-8"/>
+  <title>Lista de Usuarios</title>
 </head>
 <body>
+  <h1>Lista de Usuarios</h1>
 
-    <h1>Lista de Usuarios</h1>
+  <p><a th:href="@{/usuario/nuevo}">Crear Usuario</a></p>
 
-    <a th:href="@{/usuario/nuevo}">Crear Usuario</a>
-
-    <table border="1" cellpadding="5">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr th:each="u : ${usuarios}">
-                <td th:text="${u.id}"></td>
-                <td th:text="${u.nombre}"></td>
-                <td th:text="${u.apellido}"></td>
-                <td th:text="${u.email}"></td>
-                <td th:text="${u.telefono}"></td>
-                <td th:text="${u.direccion}"></td>
-
-                <td>
-                    <a th:href="@{'/usuario/editar/' + ${u.id}}">Editar</a> |
-                    <a th:href="@{'/usuario/eliminar/' + ${u.id}}">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>ID</th><th>Nombre</th><th>Apellido</th><th>Email</th><th>Teléfono</th><th>Dirección</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="u : ${usuarios}">
+        <td th:text="${u.id}">1</td>
+        <td th:text="${u.nombre}">Nombre</td>
+        <td th:text="${u.apellido}">Apellido</td>
+        <td th:text="${u.email}">email</td>
+        <td th:text="${u.telefono}">tel</td>
+        <td th:text="${u.direccion}">dir</td>
+        <td>
+          <!-- forma recomendada para pasar el id en thymeleaf -->
+          <a th:href="@{/usuario/editar/{id}(id=${u.id})}">Editar</a> |
+          <a th:href="@{/usuario/eliminar/{id}(id=${u.id})}"
+             onclick="return confirm('Eliminar usuario?');">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>

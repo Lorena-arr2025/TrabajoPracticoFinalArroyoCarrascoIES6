@@ -2,47 +2,59 @@ package edu.ar.easymover.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 import edu.ar.easymover.Model.UsuarioModel;
 import edu.ar.easymover.Service.UsuarioService;
 
 @Controller
-@RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/lista")
-    public String listar(Model model) {
-        model.addAttribute("usuarios", usuarioService.listarUsuarios());
-        return "usuario-lista";
+    // LISTAR USUARIOS
+    @GetMapping("/usuario/lista")
+    public ModelAndView listarUsuarios() {
+        ModelAndView vista = new ModelAndView("usuario-lista");
+        vista.addObject("usuarios", usuarioService.listarUsuarios());
+        return vista;
     }
 
-    @GetMapping("/nuevo")
-    public String nuevo(Model model) {
-        model.addAttribute("usuario", new UsuarioModel());
-        return "usuario-form";
+    // FORMULARIO NUEVO USUARIO
+    @GetMapping("/usuario/nuevo")
+    public ModelAndView nuevoUsuario() {
+        ModelAndView vista = new ModelAndView("usuario-form");
+        vista.addObject("usuario", new UsuarioModel());
+        return vista;
     }
 
-    @PostMapping("/guardar")
-    public String guardar(@ModelAttribute UsuarioModel usuario) {
+    // EDITAR USUARIO
+    @GetMapping("/usuario/editar/{id}")
+    public ModelAndView editarUsuario(@PathVariable Integer id) {
+        ModelAndView vista = new ModelAndView("usuario-form");
+        vista.addObject("usuario", usuarioService.buscarPorId(id));
+        return vista;
+    }
+
+    // GUARDAR USUARIO (CREATE O UPDATE)
+    @PostMapping("/usuario/guardar")
+    public String guardarUsuario(UsuarioModel usuario) {
         usuarioService.guardarUsuario(usuario);
         return "redirect:/usuario/lista";
     }
 
-    @GetMapping("/editar/{id}")
-    public String editar(@PathVariable Integer id, Model model) {
-        model.addAttribute("usuario", usuarioService.buscarUsuario(id));
-        return "usuario-form";
-    }
-
-    @GetMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable Integer id) {
+    // ELIMINAR
+    @GetMapping("/usuario/eliminar/{id}")
+    public String eliminarUsuario(@PathVariable Integer id) {
         usuarioService.eliminarUsuario(id);
         return "redirect:/usuario/lista";
     }
+    @GetMapping("/index")
+public String index() {
+    return "index";
 }
-
+}

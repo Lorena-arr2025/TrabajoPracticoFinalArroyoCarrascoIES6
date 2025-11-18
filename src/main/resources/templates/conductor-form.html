@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulario Conductor</title>
     <meta charset="UTF-8">
+    <title>Formulario Conductor</title>
+
+    <!-- Bootstrap -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
 </head>
-<body>
 
-    <h1>Formulario de Conductor</h1>
+<body class="bg-light">
 
-    <form th:action="@{/conductor/guardar}" th:object="${conductor}" method="post">
+<div class="container mt-5">
 
-        <input type="hidden" th:field="*{idConductor}"/>
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h3 th:text="${conductor.idConductor} == null ? 'Nuevo Conductor' : 'Editar Conductor'"></h3>
+        </div>
 
-        <label>Estado (true/false):</label>
-        <input type="text" th:field="*{estadoConductor}" required><br><br>
+        <div class="card-body">
 
-        <label>Nombre:</label>
-        <input type="text" th:field="*{nombre}" required><br><br>
+            <form th:action="@{/conductor/guardar}" 
+                  th:object="${conductor}" 
+                  method="post">
 
-        <label>Apellido:</label>
-        <input type="text" th:field="*{apellido}" required><br><br>
+                <!-- ID oculto -->
+                <input type="hidden" th:field="*{idConductor}"/>
 
-        <label>Licencia:</label>
-        <input type="text" th:field="*{licencia}" required><br><br>
+                <!-- ESTADO BOOLEAN -->
+                <div class="mb-3">
+                    <label class="form-label">Estado del Conductor</label>
+                    <select class="form-control" th:field="*{estadoConductor}">
+                        <option th:value="true">Activo</option>
+                        <option th:value="false">Inactivo</option>
+                    </select>
+                </div>
 
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" required><br><br>
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombre}" required>
+                </div>
 
-        <button type="submit">Guardar</button>
-    </form>
+                <div class="mb-3">
+                    <label class="form-label">Apellido</label>
+                    <input type="text" class="form-control" th:field="*{apellido}" required>
+                </div>
 
-    <a th:href="@{/conductor/lista}">Volver</a>
+                <div class="mb-3">
+                    <label class="form-label">Licencia</label>
+                    <input type="text" class="form-control" th:field="*{licencia}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" th:field="*{email}" required>
+                </div>
+
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a th:href="@{/conductor/lista}" class="btn btn-secondary ms-2">Volver</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

@@ -6,5 +6,4 @@ import edu.ar.easymover.Model.UsuarioModel;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Integer> {
-
 }

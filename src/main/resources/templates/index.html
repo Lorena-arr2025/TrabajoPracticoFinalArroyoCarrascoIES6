@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EasyMover - Inicio</title>
 </head>
 <body>
-    
+    <h1>Bienvenido al Sistema EasyMover</h1>
+    <h3>Trabajo Final - Arroyo, Carrasco</h3>
+
+    <ul>
+        <li><a th:href="@{/usuario/lista}">Gestión de Usuarios</a></li>
+        <li><a th:href="@{/conductor/lista}">Gestión de Conductores</a></li>
+        <li><a th:href="@{/vehiculo/lista}">Gestión de Vehículos</a></li>
+        <li><a th:href="@{/viaje/lista}">Gestión de Viajes</a></li>
+    </ul>
 </body>
 </html>

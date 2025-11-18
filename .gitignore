@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+# Evitar subir configuraciones privadas
+src/main/resources/application.properties
+
+# Evitar archivos secretos opcionales
+src/main/resources/application-secret.properties

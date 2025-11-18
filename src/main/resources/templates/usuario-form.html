@@ -1,36 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulario Usuario</title>
-    <meta charset="UTF-8">
+  <meta charset="utf-8"/>
+  <title>Formulario Usuario</title>
 </head>
 <body>
+  <h1>Formulario de Usuario</h1>
 
-    <h1>Formulario de Usuario</h1>
+  <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post">
+    <!-- Si usás Spring Security, incluí CSRF token:
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    -->
+    <input type="hidden" th:field="*{id}" />
 
-    <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post">
+    <label>Nombre</label>
+    <input type="text" th:field="*{nombre}" /><br/>
 
-        <input type="hidden" th:field="*{id}"/>
+    <label>Apellido</label>
+    <input type="text" th:field="*{apellido}" /><br/>
 
-        <label>Nombre:</label>
-        <input type="text" th:field="*{nombre}" required><br><br>
+    <label>Email</label>
+    <input type="email" th:field="*{email}" /><br/>
 
-        <label>Apellido:</label>
-        <input type="text" th:field="*{apellido}" required><br><br>
+    <label>Teléfono</label>
+    <input type="text" th:field="*{telefono}" /><br/>
 
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" required><br><br>
+    <label>Dirección</label>
+    <input type="text" th:field="*{direccion}" /><br/>
 
-        <label>Teléfono:</label>
-        <input type="text" th:field="*{telefono}" required><br><br>
-
-        <label>Dirección:</label>
-        <input type="text" th:field="*{direccion}" required><br><br>
-
-        <button type="submit">Guardar</button>
-    </form>
-
+    <button type="submit">Guardar</button>
     <a th:href="@{/usuario/lista}">Volver</a>
-
+  </form>
 </body>
 </html>
