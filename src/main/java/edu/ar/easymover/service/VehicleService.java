@@ -34,8 +34,5 @@ public class VehicleService {
         vehicleRepository.deleteById(id);
     }
 
-    public Object getAllVehicles() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllVehicles'");
-    }
+
 }

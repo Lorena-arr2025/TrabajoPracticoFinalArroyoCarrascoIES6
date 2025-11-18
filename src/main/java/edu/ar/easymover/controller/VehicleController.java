@@ -9,25 +9,24 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.ar.easymover.service.VehicleService;
 
 @Controller
-@RequestMapping("/vehicles")
+@RequestMapping("/vehiculos")   // ✔ RUTA CORRECTA
 public class VehicleController {
 
     @Autowired
     private VehicleService vehicleService;
 
-    // Muestra el formulario para cargar un vehículo
+    // ✔ Muestra el formulario para crear un vehículo
     @GetMapping("/nuevo")
     public String mostrarFormulario() {
-        return "Vehiculo"; // Tu archivo Vehiculo.html
+        return "Vehiculo";   // Debe coincidir con el archivo Vehiculo.html
     }
 
-    // Muestra la lista de vehículos
+    // ✔ Muestra la lista de vehículos
     @GetMapping("/lista")
     public ModelAndView mostrarLista() {
-        ModelAndView mav = new ModelAndView("listaVehiculos");
+        ModelAndView mav = new ModelAndView("listaVehiculos");  // Debe coincidir con listaVehiculos.html
         mav.addObject("vehiculos", vehicleService.listarTodos());
         return mav;
     }
 }
-
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Viaje</title>
+</head>
+<body>
+
+    <h1>Registrar Viaje</h1>
+
+    <form action="/viajes/guardar" method="post">
+
+        <!-- SELECCIÓN DEL VEHÍCULO -->
+        <label>Vehículo:</label>
+        <select name="vehicle.id" required>
+            <option value="">Seleccione...</option>
+            <option th:each="v : ${vehiculos}"
+                    th:value="${v.id}"
+                    th:text="${v.marca + ' ' + v.modelo + ' (' + v.patente + ')' }">
+            </option>
+        </select>
+        <br><br>
+
+        <!-- ORIGEN -->
+        <label>Origen:</label>
+        <input type="text" name="origen" required><br><br>
+
+        <!-- DESTINO -->
+        <label>Destino:</label>
+        <input type="text" name="destino" required><br><br>
+
+        <!-- COSTO -->
+        <label>Costo del viaje:</label>
+        <input type="number" step="0.01" name="costo" required><br><br>
+
+        <button type="submit">Guardar Viaje</button>
+    </form>
+
+    <br>
+    <a href="/vehicles/lista">Volver a Vehículos</a>
+
+</body>
+</html>
