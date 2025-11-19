@@ -1,48 +1,65 @@
-package edu.ar.easymover.Model;
+package edu.ar.easymover.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "conductores")
-public class conductorModel {
+public class ConductorModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idConductor;
 
+    private Boolean estadoConductor;
     private String nombre;
-    private String dni;
+    private String apellido;
     private String licencia;
-    private double ingresoTotal;
+    private String email;
 
-    // Constructor vacío
-    public conductorModel() {}
+    // ==========================
+    //       RELACIÓN 1:1
+    // ==========================
+    @OneToOne(mappedBy = "conductor")
+    private Vehicle vehicle;
 
-    // Constructor con parámetros
-    public conductorModel(Integer id, String nombre, String dni, String licencia, double ingresoTotal) {
-        this.id = id;
+    // ==========================
+    //     CONSTRUCTORES
+    // ==========================
+
+    public ConductorModel() {}
+
+    public ConductorModel(Integer idConductor, Boolean estadoConductor, String nombre,
+                          String apellido, String licencia, String email) {
+
+        this.idConductor = idConductor;
+        this.estadoConductor = estadoConductor;
         this.nombre = nombre;
-        this.dni = dni;
+        this.apellido = apellido;
         this.licencia = licencia;
-        this.ingresoTotal = ingresoTotal;
+        this.email = email;
     }
 
-    // Getters
-    public Integer getId() { return id; }
+    // ==========================
+    //          GETTERS
+    // ==========================
+
+    public Integer getIdConductor() { return idConductor; }
+    public Boolean getEstadoConductor() { return estadoConductor; }
     public String getNombre() { return nombre; }
-    public String getDni() { return dni; }
+    public String getApellido() { return apellido; }
     public String getLicencia() { return licencia; }
-    public double getIngresoTotal() { return ingresoTotal; }
+    public String getEmail() { return email; }
+    public Vehicle getVehicle() { return vehicle; }
 
-    // Setters
-    public void setId(Integer id) { this.id = id; }
+    // ==========================
+    //          SETTERS
+    // ==========================
+
+    public void setIdConductor(Integer idConductor) { this.idConductor = idConductor; }
+    public void setEstadoConductor(Boolean estadoConductor) { this.estadoConductor = estadoConductor; }
     public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setDni(String dni) { this.dni = dni; }
+    public void setApellido(String apellido) { this.apellido = apellido; }
     public void setLicencia(String licencia) { this.licencia = licencia; }
-    public void setIngresoTotal(double ingresoTotal) { this.ingresoTotal = ingresoTotal; }
+    public void setEmail(String email) { this.email = email; }
+    public void setVehicle(Vehicle vehicle) { this.vehicle = vehicle; }
 }
-
