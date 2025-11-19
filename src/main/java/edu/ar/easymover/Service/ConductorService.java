@@ -1,11 +1,11 @@
-package edu.ar.easymover.Service;
+package edu.ar.easymover.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.ar.easymover.Model.ConductorModel;
-import edu.ar.easymover.Repository.ConductorRepository;
+import edu.ar.easymover.model.ConductorModel;
+import edu.ar.easymover.repository.ConductorRepository;
 
 @Service
 public class ConductorService {

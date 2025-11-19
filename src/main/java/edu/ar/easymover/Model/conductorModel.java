@@ -1,4 +1,4 @@
-package edu.ar.easymover.Model;
+package edu.ar.easymover.model;
 
 import jakarta.persistence.*;
 
@@ -17,15 +17,17 @@ public class ConductorModel {
     private String email;
 
     // ==========================
-    //     RELACIÓN ONE TO ONE
+    //       RELACIÓN 1:1
     // ==========================
     @OneToOne(mappedBy = "conductor")
     private Vehicle vehicle;
 
-    // Constructor vacío
+    // ==========================
+    //     CONSTRUCTORES
+    // ==========================
+
     public ConductorModel() {}
 
-    // Constructor completo
     public ConductorModel(Integer idConductor, Boolean estadoConductor, String nombre,
                           String apellido, String licencia, String email) {
 
@@ -37,7 +39,10 @@ public class ConductorModel {
         this.email = email;
     }
 
-    // GETTERS
+    // ==========================
+    //          GETTERS
+    // ==========================
+
     public Integer getIdConductor() { return idConductor; }
     public Boolean getEstadoConductor() { return estadoConductor; }
     public String getNombre() { return nombre; }
@@ -46,7 +51,10 @@ public class ConductorModel {
     public String getEmail() { return email; }
     public Vehicle getVehicle() { return vehicle; }
 
-    // SETTERS
+    // ==========================
+    //          SETTERS
+    // ==========================
+
     public void setIdConductor(Integer idConductor) { this.idConductor = idConductor; }
     public void setEstadoConductor(Boolean estadoConductor) { this.estadoConductor = estadoConductor; }
     public void setNombre(String nombre) { this.nombre = nombre; }

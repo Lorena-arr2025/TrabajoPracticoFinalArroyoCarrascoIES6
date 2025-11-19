@@ -1,12 +1,12 @@
-package edu.ar.easymover.Service;
+package edu.ar.easymover.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.ar.easymover.Model.UsuarioModel;
-import edu.ar.easymover.Repository.UsuarioRepository;
+import edu.ar.easymover.model.UsuarioModel;
+import edu.ar.easymover.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {

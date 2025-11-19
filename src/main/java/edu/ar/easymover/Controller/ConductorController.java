@@ -1,12 +1,12 @@
-package edu.ar.easymover.Controller;
+package edu.ar.easymover.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import edu.ar.easymover.Model.ConductorModel;
-import edu.ar.easymover.Service.ConductorService;
+import edu.ar.easymover.model.ConductorModel;
+import edu.ar.easymover.service.ConductorService;
 
 @Controller
 @RequestMapping("/conductor")

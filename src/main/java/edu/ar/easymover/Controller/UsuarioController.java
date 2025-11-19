@@ -1,4 +1,4 @@
-package edu.ar.easymover.Controller;
+package edu.ar.easymover.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.ar.easymover.Model.UsuarioModel;
-import edu.ar.easymover.Service.UsuarioService;
+import edu.ar.easymover.model.UsuarioModel;
+import edu.ar.easymover.service.UsuarioService;
 
 @Controller
 public class UsuarioController {

@@ -1,4 +1,4 @@
-package edu.ar.easymover.Model;
+package edu.ar.easymover.model;
 
 import jakarta.persistence.*;
 import java.util.List;
@@ -18,15 +18,17 @@ public class UsuarioModel {
     private String direccion;
 
     // ==========================
-    //     RELACION 1:N
+    //     RELACIÓN 1:N
     // ==========================
     @OneToMany(mappedBy = "usuario")
     private List<Viaje> viajes;
 
-    // Constructor vacío
+    // ==========================
+    //     CONSTRUCTORES
+    // ==========================
+
     public UsuarioModel() {}
 
-    // Constructor con parámetros
     public UsuarioModel(Integer id, String nombre, String apellido, String email,
                         String telefono, String direccion) {
 
@@ -38,7 +40,10 @@ public class UsuarioModel {
         this.direccion = direccion;
     }
 
-    // Getters
+    // ==========================
+    //          GETTERS
+    // ==========================
+
     public Integer getId() { return id; }
     public String getNombre() { return nombre; }
     public String getApellido() { return apellido; }
@@ -47,7 +52,10 @@ public class UsuarioModel {
     public String getDireccion() { return direccion; }
     public List<Viaje> getViajes() { return viajes; }
 
-    // Setters
+    // ==========================
+    //          SETTERS
+    // ==========================
+
     public void setId(Integer id) { this.id = id; }
     public void setNombre(String nombre) { this.nombre = nombre; }
     public void setApellido(String apellido) { this.apellido = apellido; }
