@@ -5,61 +5,28 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import edu.ar.easymover.model.Viaje;
-import edu.ar.easymover.repository.ViajesRepository;
+import edu.ar.easymover.repository.ViajeRepository;
 
 @Service
 public class ViajeService {
 
     @Autowired
-    private ViajesRepository viajesRepository;
+    private ViajeRepository viajeRepository;
 
     public List<Viaje> getAllViajes() {
-        return viajesRepository.findAll();
+        return viajeRepository.findAll();
     }
 
     public Viaje saveViaje(Viaje viaje) {
-        double costo = calcularCosto(viaje);
-        viaje.setCosto(costo);
-        return viajesRepository.save(viaje);
+        // Si luego agregamos tipoViaje, se calcula aquí.
+        return viajeRepository.save(viaje);
     }
 
     public Viaje getViajeById(Integer idViaje) {
-        return viajesRepository.findById(idViaje).orElse(null);
+        return viajeRepository.findById(idViaje).orElse(null);
     }
 
     public void deleteViaje(Integer idViaje) {
-        viajesRepository.deleteById(idViaje);
-    }
-
-    // ⭐ Cálculo del costo total del viaje según la consigna
-    public double calcularCosto(Viaje viaje) {
-
-        double costoBase = 0;
-
-        // Tipo de viaje: corta, media o larga distancia
-        switch (viaje.getTipoViaje().toLowerCase()) {
-            case "corta":
-                costoBase = 7000;
-                break;
-
-            case "media":
-                costoBase = 7000;
-                break;
-
-            case "larga":
-                costoBase = 20000;
-                break;
-        }
-
-        // ⭐ Tipo de vehículo: X, Luxe o Premium
-        String tipoVehiculo = viaje.getVehicle().getTipoVehiculo();
-
-        if (tipoVehiculo.equalsIgnoreCase("Luxe")) {
-            costoBase *= 1.10;  // +10%
-        } else if (tipoVehiculo.equalsIgnoreCase("Premium")) {
-            costoBase *= 1.20;  // +20%
-        }
-
-        return costoBase;
+        viajeRepository.deleteById(idViaje);
     }
 }
