@@ -3,13 +3,15 @@ package edu.ar.easymover.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.ar.easymover.model.Vehicle;
 import edu.ar.easymover.service.VehicleService;
 
 @Controller
-@RequestMapping("/vehiculos")   // ✔ RUTA CORRECTA
+@RequestMapping("/vehiculos")
 public class VehicleController {
 
     @Autowired
@@ -18,15 +20,22 @@ public class VehicleController {
     // ✔ Muestra el formulario para crear un vehículo
     @GetMapping("/nuevo")
     public String mostrarFormulario() {
-        return "Vehiculo";   // Debe coincidir con el archivo Vehiculo.html
+        return "VehiculoForm";   // Archivo HTML del formulario
+    }
+
+    // ✔ Procesa el formulario y guarda el vehículo
+    @PostMapping("/guardar")
+    public String guardarVehiculo(Vehicle vehicle) {
+        vehicleService.guardar(vehicle);
+        return "redirect:/vehiculos/lista";
     }
 
     // ✔ Muestra la lista de vehículos
     @GetMapping("/lista")
     public ModelAndView mostrarLista() {
-        ModelAndView mav = new ModelAndView("listaVehiculos");  // Debe coincidir con listaVehiculos.html
+        ModelAndView mav = new ModelAndView("listaVehiculos");
         mav.addObject("vehiculos", vehicleService.listarTodos());
         return mav;
     }
-}
 
+}
