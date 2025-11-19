@@ -3,16 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <title>EasyMover - Inicio</title>
-</head>
-<body>
-    <h1>Bienvenido al Sistema EasyMover</h1>
-    <h3>Trabajo Final - Arroyo, Carrasco</h3>
 
-    <ul>
-        <li><a th:href="@{/usuario/lista}">Gestión de Usuarios</a></li>
-        <li><a th:href="@{/conductor/lista}">Gestión de Conductores</a></li>
-        <li><a th:href="@{/vehiculo/lista}">Gestión de Vehículos</a></li>
-        <li><a th:href="@{/viaje/lista}">Gestión de Viajes</a></li>
-    </ul>
+    <!-- Bootstrap -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">EasyMover</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/usuario/lista">Usuarios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/conductor/lista">Conductores</a>
+                </li>
+
+                <!-- Futuro -->
+                <li class="nav-item">
+                    <a class="nav-link disabled">Vehículos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled">Viajes</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container text-center mt-5">
+
+    <h1 class="mb-4">Bienvenido a EasyMover</h1>
+    <p class="lead">Sistema de Gestión de Usuarios, Conductores, Vehículos y Viajes</p>
+
+    <div class="row mt-5">
+
+        <!-- Tarjeta Usuarios -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Usuarios</h4>
+                    <p>Gestión de clientes registrados.</p>
+                    <a href="/usuario/lista" class="btn btn-primary">Ver Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Conductores -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Conductores</h4>
+                    <p>Administración de choferes activos.</p>
+                    <a href="/conductor/lista" class="btn btn-primary">Ver Conductores</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Vehículos -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Vehículos</h4>
+                    <p>Módulo en desarrollo.</p>
+                    <a class="btn btn-secondary disabled">Próximamente</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Viajes -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Viajes</h4>
+                    <p>Módulo en desarrollo.</p>
+                    <a class="btn btn-secondary disabled">Próximamente</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Bootstrap Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
