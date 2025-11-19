@@ -17,25 +17,24 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    // ✔ Muestra el formulario para crear un vehículo
+    // Muestra el formulario
     @GetMapping("/nuevo")
     public String mostrarFormulario() {
-        return "VehiculoForm";   // Archivo HTML del formulario
+        return "VehiculoForm";  
     }
 
-    // ✔ Procesa el formulario y guarda el vehículo
+    // Guarda el vehículo
     @PostMapping("/guardar")
     public String guardarVehiculo(Vehicle vehicle) {
         vehicleService.guardar(vehicle);
         return "redirect:/vehiculos/lista";
     }
 
-    // ✔ Muestra la lista de vehículos
+    // Lista de vehículos
     @GetMapping("/lista")
     public ModelAndView mostrarLista() {
         ModelAndView mav = new ModelAndView("listaVehiculos");
         mav.addObject("vehiculos", vehicleService.listarTodos());
         return mav;
     }
-
 }
