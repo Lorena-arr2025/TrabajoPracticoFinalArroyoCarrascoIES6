@@ -18,27 +18,31 @@ public class Vehicle {
     private String tipoVehiculo;
 
     // ==========================
-    //       RELACIONES
+    //         RELACIONES
     // ==========================
 
-    // ✔ ONE TO ONE con ConductorModel
+    // ✔ Relación 1:1 con ConductorModel
     @OneToOne
     @JoinColumn(name = "idConductor")
     private ConductorModel conductor;
 
-    // ✔ ONE TO MANY con Viaje
+    // ✔ Relación N:1 con UsuarioModel (propietario del vehículo)
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private UsuarioModel usuario;
+
+    // ✔ Relación 1:N con Viaje
     @OneToMany(mappedBy = "vehicle")
     private List<Viaje> viajes;
 
     // ==========================
-    //      CONSTRUCTORES
+    //       CONSTRUCTORES
     // ==========================
 
     public Vehicle() {}
 
     public Vehicle(Integer idVehicle, String patente, String modelo, String color,
                    Boolean estadoVehicle, String tipoVehiculo) {
-
         this.idVehicle = idVehicle;
         this.patente = patente;
         this.modelo = modelo;
@@ -48,7 +52,7 @@ public class Vehicle {
     }
 
     // ==========================
-    //         GETTERS
+    //          GETTERS
     // ==========================
 
     public Integer getIdVehicle() { return idVehicle; }
@@ -58,10 +62,11 @@ public class Vehicle {
     public Boolean getEstadoVehicle() { return estadoVehicle; }
     public String getTipoVehiculo() { return tipoVehiculo; }
     public ConductorModel getConductor() { return conductor; }
+    public UsuarioModel getUsuario() { return usuario; }
     public List<Viaje> getViajes() { return viajes; }
 
     // ==========================
-    //         SETTERS
+    //          SETTERS
     // ==========================
 
     public void setIdVehicle(Integer idVehicle) { this.idVehicle = idVehicle; }
@@ -71,5 +76,6 @@ public class Vehicle {
     public void setEstadoVehicle(Boolean estadoVehicle) { this.estadoVehicle = estadoVehicle; }
     public void setTipoVehiculo(String tipoVehiculo) { this.tipoVehiculo = tipoVehiculo; }
     public void setConductor(ConductorModel conductor) { this.conductor = conductor; }
+    public void setUsuario(UsuarioModel usuario) { this.usuario = usuario; }
     public void setViajes(List<Viaje> viajes) { this.viajes = viajes; }
 }
