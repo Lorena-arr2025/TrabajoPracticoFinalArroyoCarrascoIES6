@@ -25,9 +25,9 @@ public class Viaje {
     private Vehicle vehicle;
 
     // ✔ Relación N:1 con UsuarioModel (cliente que hizo el viaje)
-    @ManyToOne
-    @JoinColumn(name = "idUsuario")
-    private UsuarioModel usuario;
+   // @ManyToOne
+    //@JoinColumn(name = "idUsuario")
+    //private UsuarioModel usuario;
 
     // ==========================
     //       CONSTRUCTORES
@@ -36,13 +36,13 @@ public class Viaje {
     public Viaje() {}
 
     public Viaje(String origen, String destino, Double costo, String fecha,
-                 Vehicle vehicle, UsuarioModel usuario) {
+                Vehicle vehicle) {
         this.origen = origen;
         this.destino = destino;
         this.costo = costo;
         this.fecha = fecha;
         this.vehicle = vehicle;
-        this.usuario = usuario;
+        //this.usuario = usuario;
     }
 
     // ==========================
@@ -55,7 +55,7 @@ public class Viaje {
     public Double getCosto() { return costo; }
     public String getFecha() { return fecha; }
     public Vehicle getVehicle() { return vehicle; }
-    public UsuarioModel getUsuario() { return usuario; }
+    //public UsuarioModel getUsuario() { return usuario; }
 
     // ==========================
     //          SETTERS
@@ -67,5 +67,5 @@ public class Viaje {
     public void setCosto(Double costo) { this.costo = costo; }
     public void setFecha(String fecha) { this.fecha = fecha; }
     public void setVehicle(Vehicle vehicle) { this.vehicle = vehicle; }
-    public void setUsuario(UsuarioModel usuario) { this.usuario = usuario; }
+    //public void setUsuario(UsuarioModel usuario) { this.usuario = usuario; }
 }

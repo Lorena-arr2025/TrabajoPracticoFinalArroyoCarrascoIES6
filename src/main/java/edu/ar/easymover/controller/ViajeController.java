@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.ar.easymover.model.Viaje;
-import edu.ar.easymover.service.VehicleService;
+//import edu.ar.easymover.service.VehicleService;
 import edu.ar.easymover.service.ViajeService;
 
 @Controller
 public class ViajeController {
 
-    @Autowired
-    private VehicleService vehicleService;
+    //@Autowired
+   // private VehicleService vehicleService;
 
     @Autowired
     private ViajeService viajeService;
@@ -28,7 +28,7 @@ public ModelAndView nuevoViaje(@RequestParam(value = "tipo", required = false) S
     ModelAndView mav = new ModelAndView("Viajes");
 
     mav.addObject("viajeNuevo", new Viaje());
-    mav.addObject("vehiculos", vehicleService.listarTodos());
+    //mav.addObject("vehiculos", vehicleService.listarTodos());
 
     // ⭐ Aquí estamos enviando el tipo seleccionado al HTML
     mav.addObject("tipoSeleccionado", tipo);

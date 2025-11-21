@@ -2,6 +2,7 @@ package edu.ar.easymover.model;
 
 import jakarta.persistence.*;
 import java.util.List;
+import edu.ar.easymover.model.Viaje;
 
 @Entity
 @Table(name = "vehiculos")
@@ -18,27 +19,20 @@ public class Vehicle {
     private String tipoVehiculo;
 
     // ==========================
-    //       RELACIONES
+    // RELACIONES
     // ==========================
 
-    // ✔ ONE TO ONE con ConductorModel
-    @OneToOne
-    @JoinColumn(name = "idConductor")
-    private ConductorModel conductor;
-
-    // ✔ ONE TO MANY con Viaje
-    @OneToMany(mappedBy = "vehicle")
-    private List<Viaje> viajes;
+    //@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+    //private List<Viaje> viajes;
 
     // ==========================
-    //      CONSTRUCTORES
+    // CONSTRUCTORES
     // ==========================
 
     public Vehicle() {}
 
     public Vehicle(Integer idVehicle, String patente, String modelo, String color,
                    Boolean estadoVehicle, String tipoVehiculo) {
-
         this.idVehicle = idVehicle;
         this.patente = patente;
         this.modelo = modelo;
@@ -48,7 +42,7 @@ public class Vehicle {
     }
 
     // ==========================
-    //         GETTERS
+    // GETTERS
     // ==========================
 
     public Integer getIdVehicle() { return idVehicle; }
@@ -57,11 +51,10 @@ public class Vehicle {
     public String getColor() { return color; }
     public Boolean getEstadoVehicle() { return estadoVehicle; }
     public String getTipoVehiculo() { return tipoVehiculo; }
-    public ConductorModel getConductor() { return conductor; }
-    public List<Viaje> getViajes() { return viajes; }
+    //public List<Viaje> getViajes() { return viajes; }
 
     // ==========================
-    //         SETTERS
+    // SETTERS
     // ==========================
 
     public void setIdVehicle(Integer idVehicle) { this.idVehicle = idVehicle; }
@@ -70,6 +63,5 @@ public class Vehicle {
     public void setColor(String color) { this.color = color; }
     public void setEstadoVehicle(Boolean estadoVehicle) { this.estadoVehicle = estadoVehicle; }
     public void setTipoVehiculo(String tipoVehiculo) { this.tipoVehiculo = tipoVehiculo; }
-    public void setConductor(ConductorModel conductor) { this.conductor = conductor; }
-    public void setViajes(List<Viaje> viajes) { this.viajes = viajes; }
+    //public void setViajes(List<Viaje> viajes) { this.viajes = viajes; }
 }

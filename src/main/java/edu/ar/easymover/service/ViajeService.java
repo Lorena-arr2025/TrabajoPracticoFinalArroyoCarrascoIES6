@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import edu.ar.easymover.model.Viaje;
-import edu.ar.easymover.repository.ViajeRepository;
+import edu.ar.easymover.repository.ViajesRepository;
 
 @Service
 public class ViajeService {
 
     @Autowired
-    private ViajeRepository viajeRepository;
+    private ViajesRepository viajeRepository;
 
     public List<Viaje> getAllViajes() {
         return viajeRepository.findAll();

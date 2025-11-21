@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyMover - Inicio</title>
+
+    <!-- Bootstrap -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">EasyMover</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <!-- Módulos de tu compañera -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/usuario/lista}">Usuarios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/conductor/lista}">Conductores</a>
+                </li>
+
+                <!-- TUS MÓDULOS ACTIVOS -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/vehiculos/lista}">Vehículos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/viajes/lista}">Viajes</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container text-center mt-5">
+
+    <h1 class="mb-4">Bienvenido a EasyMover</h1>
+    <p class="lead">Sistema de Gestión de Usuarios, Conductores, Vehículos y Viajes</p>
+
+    <div class="row mt-5">
+
+        <!-- Usuarios -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Usuarios</h4>
+                    <p>Gestión de clientes registrados.</p>
+                    <a th:href="@{/usuario/lista}" class="btn btn-primary">Ver Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conductores -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Conductores</h4>
+                    <p>Administración de choferes.</p>
+                    <a th:href="@{/conductor/lista}" class="btn btn-primary">Ver Conductores</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TUS VEHÍCULOS -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Vehículos</h4>
+                    <p>Gestión del parque automotor.</p>
+                    <a th:href="@{/vehiculos/lista}" class="btn btn-success">Ver Vehículos</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TUS VIAJES -->
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Viajes</h4>
+                    <p>Gestión de los recorridos.</p>
+                    <a th:href="@{/viajes/lista}" class="btn btn-success">Ver Viajes</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

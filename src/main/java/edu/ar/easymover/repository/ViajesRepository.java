@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import edu.ar.easymover.model.Viaje;
 
 @Repository
-public interface ViajeRepository extends JpaRepository<Viaje, Integer> {
+public interface ViajesRepository extends JpaRepository<Viaje, Integer> {
     // Repository de la entidad Viaje
 }
